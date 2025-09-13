@@ -11,23 +11,58 @@
                             SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout Padding="5">
-                            <Label Text="{Binding Name}" />
-                            <Label Text="{Binding AppointmentDate, StringFormat='{dd/MM/yyyy}'}" />
-                            <HorizontalStackLayout>
+                        <Grid Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Nombre:"
+                                   Grid.Column="0"
+                                   Grid.Row="0" 
+                                   FontAttributes="Bold"/>
+                            <Label Text="Asunto"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   FontAttributes="Bold" />
+                            <Label Text="Fecha de la cita:"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   FontAttributes="Bold" />
+                            <Label Text="Hora:"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   FontAttributes="Bold" />
+
+                            <Label Text="{Binding Name}"
+                                   Grid.Column="1"
+                                   Grid.Row="0" />
+                            <Label Text="{Binding Subject}"
+                                   Grid.Column="1"
+                                   Grid.Row="1" />
+                            <Label Text="{Binding AppointmentDate, StringFormat='{dd/MM/yyyy}'}"
+                                   Grid.Column="1"
+                                   Grid.Row="2" />
+                            <HorizontalStackLayout Grid.Column="1"
+                                                   Grid.Row="3">
                                 <Label Text="{Binding StartingTime, StringFormat='{HH:mm}'}" />
-                                <Label> - </Label>
+                                <Label>-</Label>
                                 <Label Text="{Binding EndingTime, StringFormat='{HH:mm}'}" />
                             </HorizontalStackLayout>
-
-                        </VerticalStackLayout>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <HorizontalStackLayout VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    Spacing="10">
-                <Button Text="Agregar Cita"/>
+                <Button Text="Agregar Cita" />
                 <Button Text="Eliminar Cita Seleccionada" />
             </HorizontalStackLayout>
 

@@ -7,7 +7,7 @@
     Title="AppointmentSimulator">
 
     <ShellContent
-        Title="Home"
+        Title="Appointment Simulator"
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
 
