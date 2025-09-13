@@ -16,5 +16,18 @@ namespace AppointmentSimulator.Pages
             await Navigation.PushAsync(new AddNewAppointmentPage());
         }
 
+        private async void OnDeleteSelectedAppointmentClicked(object sender, EventArgs e)
+        {
+            var selectedAppointment = AppointmentsCollectionView.SelectedItem as AppointmentSimulator.Models.Appointment;
+            if (selectedAppointment != null)
+            {
+                bool confirm = await DisplayAlert("Confirmar", "¿Seguro que desea eliminar la cita seleccionada?", "Sí", "No");
+                if (confirm)
+                {
+                    GlobalData.Appointments.Remove(selectedAppointment);
+                    AppointmentsCollectionView.SelectedItem = null;
+                }
+            }
+        }
     }
 }
