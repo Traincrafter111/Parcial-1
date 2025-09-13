@@ -1,4 +1,5 @@
 ﻿using AppointmentSimulator.Models;
+using System.Threading.Tasks;
 
 namespace AppointmentSimulator.Pages
 {
@@ -8,6 +9,11 @@ namespace AppointmentSimulator.Pages
         {
             InitializeComponent();
             AppointmentsCollectionView.ItemsSource = GlobalData.Appointments;
+        }
+
+        private async void OnAddNewAppointmentClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddNewAppointmentPage());
         }
 
     }

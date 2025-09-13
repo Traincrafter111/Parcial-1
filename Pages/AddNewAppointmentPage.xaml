@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppointmentSimulator.Pages.AddNewAppointmentPage"
+             Title="AddNewAppointmentPage">
+    <VerticalStackLayout Padding="20">
+        <Label 
+      Text="Nombre Del Estudiante"
+      FontSize="24"
+      HorizontalOptions="Center" />
+        <Entry x:Name="NameEntry" Placeholder="Ingrese El Nombre Aqui" Text="{Binding Name}"/>
+
+        <Label 
+      Text="Asunto"
+      FontSize="24"
+      HorizontalOptions="Center" />
+        <Entry x:Name="SubjectEntry" Placeholder="Ingrese El Asunto Aqui" Text="{Binding Subject}"/>
+
+        <DatePicker x:Name="appointmentDateEntry" Date="{Binding AppointmentDate}"/>
+        <TimePicker x:Name="startingTimeEntry" Time="{Binding StartingTime}"/>
+        <TimePicker x:Name="endingTimeEntry" Time="{Binding EndingTime}"/>
+
+        <Button Text="Guardar" Command="{Binding AddNewAppointmentCommand}"/>
+        <Button Text="Cancelar" Command="{Binding CancelAppointmentCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
